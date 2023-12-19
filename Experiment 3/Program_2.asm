@@ -1,0 +1,30 @@
+ORG 100H
+.DATA
+L DW ?
+
+.CODE 
+MAIN PROC
+    
+MOV AX, 2312H 
+MOV BX, 1211H 
+MOV CX, 1214H
+CMP AX, BX
+JB L1
+CMP BX, CX 
+JB L3
+MOV L, CX 
+HLT
+
+L1:	CMP AX, CX 
+    JB L2
+    MOV L, CX 
+    HLT
+
+L2:	MOV L, AX 
+    HLT
+
+L3:	MOV L, BX 
+    HLT
+
+MAIN ENDP
+END MAIN
